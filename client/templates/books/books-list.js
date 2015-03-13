@@ -11,5 +11,8 @@ Template.booksList.events({
   },
   'click .sort-by-alphabet-author': function () {
     Session.set('sort_by', {author: 1});
-  } 
+  },
+  'click .sort-by-submission': function () {
+    Session.set('sort_by', {submitted: -1});
+  }
 })

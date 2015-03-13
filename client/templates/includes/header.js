@@ -1,5 +1,5 @@
 Meteor.startup(function(){
-  Session.set("sort_by", {submission: -1});
+  Session.set("sort_by", {submitted: -1});
 });
 
 Template.header.events({

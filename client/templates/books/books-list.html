@@ -1,11 +1,19 @@
 <template name="booksList">
-  <h4>
-    A leltár:
-    <button class="btn btn-xs btn-default sort-by-alphabet-title">betűrendben (cím)</button>
-    <button class="btn btn-xs btn-default sort-by-alphabet-author">betűrendben (szerző)</button>
-  </h4>
-  
-  {{#each books}}
-    {{> bookItem}}
-  {{/each}}  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        A leltár:
+        <div class="btn-group btn-group-xs pull-right" role="group" aria-label="sorting-buttons">
+          <button class="btn btn-xs btn-default sort-by-alphabet-title">cím szerint</button>
+          <button class="btn btn-xs btn-default sort-by-alphabet-author">szerző szerint</button>
+          <button class="btn btn-xs btn-default sort-by-submission">beküldési rendben</button>
+        </div>
+      </h3>
+    </div>
+    <div class="panel-body">
+      {{#each books}}
+        {{> bookItem}}
+      {{/each}}     
+    </div> 
+  </div>
 </template>
