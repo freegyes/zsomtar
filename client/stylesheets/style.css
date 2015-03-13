@@ -1,0 +1,50 @@
+.btn-Facebook:hover {
+  color: #cccccc;
+}
+
+#login-dropdown-list {
+ line-height: 50px; 
+}
+
+.nav-li {
+ line-height: 50px; 
+ padding-right: 15px;
+}
+
+h5 { 
+  width:100%; 
+  text-align:center; 
+  border-bottom: 1px solid #ccc; 
+  line-height:0.1em; 
+  margin:25px 0 20px; 
+} 
+
+h5 span { 
+  background:#fff; 
+  padding:0 10px; 
+}
+
+ul.notifications {
+  top: 50px;
+  width: 350px;
+}
+
+li.notification.error {
+  background-color: #d9534f;
+}
+li.notification.warning {
+  background-color: #f0ad4e;
+}
+li.notification.info {
+  background-color: #5bc0de;
+}
+li.notification.success {
+  background-color: #5cb85c;
+}
+
+.unstyled-link:hover,
+.unstyled-link:active,
+.unstyled-link:focus,
+.unstyled-link:visited {
+  text-decoration: none; 
+}

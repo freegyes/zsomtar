@@ -1,0 +1,22 @@
+<template name="bookItem">
+  <div class="well">
+
+    <div class="media">
+      <div class="media-left media-middle">
+        <a href="{{link}}" target="_blank">
+          <img class="media-object" src="{{cover}}" alt="{{title}}">
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">
+          {{title}}
+        </h4>
+        <p>{{author}}</p>
+        <ul class="list-unstyled">
+          <li><span class="label label-info">{{status}}</span></li>
+          <li><span class="label label-success">{{price}} Ft</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
