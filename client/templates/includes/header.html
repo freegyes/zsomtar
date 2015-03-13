@@ -8,13 +8,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{pathFor 'home'}}">[ZSOMTAR]</a>
+        <a class="navbar-brand" href="{{pathFor 'home'}}">[ZSOMTÁR]</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li class="nav-li">
-            <button title="Töltsd le .csv-ként" class="btn btn-link btnRawCSV"><span class="text-success fa fa-save"></span></button>
-          </li>
+          {{#if currentUser}}
+            <li class="nav-li">
+              <button title="Töltsd le .csv-ként" class="btn btn-link btnRawCSV"><span class="text-success fa fa-save"></span></button>
+            </li>
+          {{/if}}
           <li class="nav-li">
               {{> loginButtons}}
           </li>
