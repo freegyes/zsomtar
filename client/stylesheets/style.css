@@ -27,6 +27,7 @@ h5 span {
 ul.notifications {
   top: 50px;
   width: 350px;
+  position: fixed;
 }
 
 li.notification.error {
@@ -47,4 +48,14 @@ li.notification.success {
 .unstyled-link:focus,
 .unstyled-link:visited {
   text-decoration: none; 
+}
+
+.panel-heading a:after {
+    font-family:'FontAwesome';
+    content:"\f0d7";
+    float: right;
+    color: grey;
+}
+.panel-heading a.collapsed:after {
+    content:"\f0da";
 }

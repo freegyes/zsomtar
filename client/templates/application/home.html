@@ -1,118 +1,92 @@
 <template name="home">
   {{#if currentUser}}
   <form>
-    <div class="panel panel-default">
+    <div id="panel-submit" class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Add el a könyved</h3>
+        <h3 class="panel-title">
+          <a data-toggle="collapse" data-target="#collapseOne" href="#collapseOne">
+            Adj hozzá egy könyvet a leltárhoz:
+          </a>
+        </h3>
       </div>
-      <div class="panel-body">
-        <div class="row"> 
-          <div class="col-md-6">
+      <div id="collapseOne" class="panel-collapse collapse in">
+        <div class="panel-body">
+          <div class="row"> 
+            <div class="col-md-6">
 
-            <div class="form-group">
-              <label for="search">Keress cím, szerző alapján:</label>
-              <div class="input-group">
-                <input type="text" id="search" class="form-control" placeholder="Csak kezdd el gépelni..." val="">
-                <span class="input-group-addon">
-                  <span class="fa fa-search"></span>
-                </span>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="title">Cím:</label>
-              <input type="text" id="title" class="form-control" placeholder="" val="{{title}}">
-            </div>
-
-            <div class="form-group">
-              <label for="title">Szerző(k):</label>
-              <input type="text" id="author" class="form-control" placeholder="" val="{{author}}">
-            </div>
-
-          </div>
-
-          <div class="col-md-2 hidden-xs">
-            <h5 class="text-muted"><span>{{coverLabel}}</span></h5>
-            <div class="thumbnail">
-              <a href="{{link}}" target="_blank">
-                <img src="{{cover}}" class="img-responsive" title="Köszönjük a Moly.hu-nak a segítséget!" alt="Köszönjük a Moly.hu-nak a segítséget!">
-              </a>
-            </div>
-          </div>
-
-          <div class="form-group col-md-4">
-            <label for="isbn">Vagy ha tudod az ISBN-t:</label>
-            <div class="input-group">
-              <input type="text" id="isbn" class="form-control" placeholder="9789632275451" val="">
-              <span class="input-group-btn">
-                <button class="btn btn-primary callServer" type="button">
-                  <span class="fa fa-magic"></span>
-                </button>
-              </span>
-            </div>
-            <span class="help-block"><small>Az ISBN számot általában a könyv vonalkódján találod meg (régebbi könyveknél pedig legtöbbször az utolsó lapok egyikén).</small></span>
-            <img src="/isbn.png" class="img-responsive hidden-xs" title="ISBN" alt="ISBN">
-          </div>
-
-        </div>
-
-        <!-- Search Results visible only when needed -->
-        <div class="row toHide">
-          <div class="col-md-12">
-
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <h3 class="panel-title">Keresési eredmények:</h3>
-              </div>
-              <div class="panel-body">
-                <div id="searchResults" class="list-group">
+              <div class="form-group">
+                <label for="search">Keress cím, szerző alapján:</label>
+                <div class="input-group">
+                  <input type="text" id="search" class="form-control" placeholder="Csak kezdd el gépelni..." val="">
+                  <span class="input-group-addon">
+                    <span class="fa fa-search"></span>
+                  </span>
                 </div>
               </div>
-              <div class="panel-footer">Kattints a könyvre!</div>
-            </div> 
+
+              <div class="form-group">
+                <label for="title">Cím:</label>
+                <input type="text" id="title" class="form-control" placeholder="" val="{{title}}">
+              </div>
+
+              <div class="form-group">
+                <label for="title">Szerző(k):</label>
+                <input type="text" id="author" class="form-control" placeholder="" val="{{author}}">
+              </div>
+
+            </div>
+
+            <div class="col-md-2 hidden-xs">
+              <h5 class="text-muted"><span>{{coverLabel}}</span></h5>
+              <div class="thumbnail">
+                <a href="{{link}}" target="_blank">
+                  <img src="{{cover}}" class="img-responsive" title="Köszönjük a Moly.hu-nak a segítséget!" alt="Köszönjük a Moly.hu-nak a segítséget!">
+                </a>
+              </div>
+            </div>
+
+            <div class="form-group col-md-4">
+              <label for="isbn">Vagy ha tudod az ISBN-t:</label>
+              <div class="input-group">
+                <input type="text" id="isbn" class="form-control" placeholder="9789632275451" val="">
+                <span class="input-group-btn">
+                  <button class="btn btn-primary callServer" type="button">
+                    <span class="fa fa-magic"></span>
+                  </button>
+                </span>
+              </div>
+              <span class="help-block"><small>Az ISBN számot általában a könyv vonalkódján találod meg (régebbi könyveknél pedig legtöbbször az utolsó lapok egyikén).</small></span>
+              <img src="/isbn.png" class="img-responsive hidden-xs" title="ISBN" alt="ISBN">
+            </div>
 
           </div>
-        </div>
-        <!-- / Search Results -->
 
-        <h5 class="text-muted"><span>A részletek</span></h5>
+          <!-- Search Results visible only when needed -->
+          <div class="row toHide">
+            <div class="col-md-12">
 
-        <div class="row">
-          <div class="form-group col-md-4">
-            <label for="status">Állapot:</label>
-            <select id="status" class="form-control">
-              <option>Érintetlen.</option>
-              <option>Kultúrhasznált.</option>
-              <option>Beleírtam, aláhúztam benne.</option>
-              <option>Táskakopott.</option>
-              <option>Rongyosra tanult.</option>
-              <option>Szétesik.</option>
-            </select>
-          </div>
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Keresési eredmények:</h3>
+                </div>
+                <div class="panel-body">
+                  <div id="searchResults" class="list-group">
+                  </div>
+                </div>
+                <div class="panel-footer">Kattints a könyvre!</div>
+              </div> 
 
-          <div class="form-group col-md-4">
-            <label for="price">Irányár:</label>
-            <div class="input-group">
-              <input type="text" id="price" class="form-control" placeholder="Pl.: 1000" val="">
-              <span class="input-group-addon">
-                Ft
-              </span>
             </div>
           </div>
-
-          <div class="form-group col-md-4">
-            <label for="email">Ide küldünk levelet:</label>
-            <p class="form-control-static"><span class="fa fa-check text-success"></span> {{email}}</p>
-          </div>
+          <!-- / Search Results -->
+        
         </div>
-      
-      
-      </div>
-      
-      <div class="panel-footer">
-        <div class="row">
-          <div class="col-md-4 col-md-offset-4">
-            <button type="submit" class="btn btn-success btn-block">Eladom.</button>
+        
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+              <button type="submit" class="btn btn-success btn-block">Leltárba vele!</button>
+            </div>
           </div>
         </div>
       </div>

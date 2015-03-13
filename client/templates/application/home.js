@@ -13,9 +13,6 @@ Template.home.rendered = function() {
 }
 
 Template.home.helpers({
-  books: function() {
-    return Books.find({}, {sort: {submitted: -1}});
-  },
   author: function () {
     return Session.get('author');
   },
@@ -30,9 +27,6 @@ Template.home.helpers({
   },
   link: function() {
     return Session.get('link');
-  },
-  email: function() {
-    return Meteor.user().emails[0].address;
   }
 });
 
@@ -43,8 +37,6 @@ Template.home.events({
     var book = {
       title: $('#title').val(),
       author: $('#author').val(),
-      status: $('#status').val(),
-      price: $('#price').val(),
       bookId: Session.get('id'),
       cover: Session.get('cover'),
       link: Session.get('link')
@@ -52,6 +44,7 @@ Template.home.events({
         
     Meteor.call('bookInsert', book, function(error, result) {
        if (error) Notifications.error('Valami nem stimmel.', 'Próbáld meg újra betölteni az oldalt.');
+       Notifications.success('Hurrá!', 'Új könyv a leltárban. :)')
     });
   },
   'click .callServer': _.debounce(function (e) {
@@ -168,6 +161,8 @@ Template.home.events({
       $('#searchResults').empty();
       $('.toHide').hide();
       $('#search').val('');
+
+      $("html, body").animate({ scrollTop: 0 }, "slow");
     });
 
   }

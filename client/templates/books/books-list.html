@@ -1,4 +1,10 @@
 <template name="booksList">
+  <h4>
+    A leltár:
+    <button class="btn btn-xs btn-default sort-by-alphabet-title">betűrendben (cím)</button>
+    <button class="btn btn-xs btn-default sort-by-alphabet-author">betűrendben (szerző)</button>
+  </h4>
+  
   {{#each books}}
     {{> bookItem}}
   {{/each}}  

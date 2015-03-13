@@ -1,3 +1,3 @@
 Meteor.publish('books', function() {
-  return Books.find();
+  return Books.find({userId: this.userId});
 });
